@@ -1,0 +1,93 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1c1f24;
+  --muted: #646b75;
+  --border: #e3e6ea;
+  --accent: #2f6fed;
+  --danger: #d93025;
+  --warn-bg: #fff4e5;
+  --warn-border: #f5a524;
+  --ok: #188038;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111317;
+    --card: #1a1d23;
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+    --border: #2c3038;
+    --accent: #7aa7ff;
+    --danger: #ff6b5e;
+    --warn-bg: #2d2412;
+    --warn-border: #b8811c;
+    --ok: #5bd17a;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--accent); }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 8px; }
+h2 { font-size: 18px; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 24px 16px 64px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.error { color: var(--danger); }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin-bottom: 18px; }
+.card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.metric { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.metric .label { color: var(--muted); font-size: 13px; }
+.metric .value { font-size: 22px; font-weight: 600; }
+
+.alert { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; }
+.alert-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 0; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block; border: 1px solid var(--border); background: var(--card); color: var(--text);
+  padding: 7px 12px; border-radius: 8px; font: inherit; cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.btn:hover { border-color: var(--accent); }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn.link { border: none; background: none; color: var(--accent); padding: 4px 6px; }
+.btn.big { padding: 12px 22px; font-size: 16px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+th { color: var(--muted); font-weight: 500; font-size: 13px; }
+tr.cancelled td { opacity: 0.5; }
+.actions { white-space: nowrap; text-align: right; }
+.table-wrap { overflow-x: auto; }
+
+.badge { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+.badge.soon { border-color: var(--warn-border); color: var(--text); background: var(--warn-bg); }
+.badge.trial { border-color: var(--accent); color: var(--accent); }
+
+form.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; align-items: end; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+input, select {
+  font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 7px 9px; min-width: 0;
+}
+
+.detection { border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+.detection .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.detection details { margin-top: 6px; font-size: 13px; color: var(--muted); }
+
+.landing { max-width: 620px; margin: 12vh auto; padding: 0 20px; text-align: center; }
+.landing h1 { font-size: 34px; }
+.lead { font-size: 17px; color: var(--muted); margin-bottom: 28px; }
+.fineprint { margin-top: 28px; text-align: left; color: var(--muted); font-size: 13px; }
